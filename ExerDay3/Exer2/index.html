@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="mobileApp">
+<head>
+    <title>mobile!</title>
+    <script src="angular.js"></script>
+    <script src="bootstrap.js"></script>   
+    <script src="mobileCtrl.js"></script>
+</head>
+<body >
+
+    <div ng-controller="mobileCtrl">
+
+        <!--p>{{devices | json}}</p>-->
+        <div>
+            <p>MODEL = <input type="text" ng-model="mobile.model"/></p>
+            <p>COLOR = <input type="text" ng-model="mobile.color"/></p>
+            <p>PRICE = <input type="text" ng-model="mobile.price"/></p>
+        </div>
+        <button ng-click="add()">Add Device</button>
+        <p>ID = <input type="text" ng-model="ind"/></p>
+        <button ng-click="update()">Update Device</button>        
+      
+        <table border="1">
+            <tr style="background:lightyellow ; padding: 10px">
+                <th>#</th>                
+                <th ng-click="sort('model')">
+                    <a href="">MODEL</a>                      
+                </th>
+                <th ng-click="sort('color')"><a href="">COLOR</a></th>
+                <th ng-click="sort('price')"><a href="">PRICE</a></th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="m in devices | orderBy:currentSort.exp: currentSort.reverse | filter:search">
+                <td> {{$index}} </td>
+                <td>{{m.model}}</td>
+                <!--td><span ng-if="editind">{{m.model}}</span><input type="text" ng-model="m.model" ng-if="editind"/></td>-->
+                <td>{{m.color}}</td>
+                <td>{{m.price}}</td>
+                <td><button ng-click="edit($index)" ><img src="pencil.png" size="5px"><img</button>                  
+                </td>
+                <td><button ng-click="del($index)" >X</button></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td> <input type="text" ng-model="search.model"/> </td>
+                <td><input type="text" ng-model="search.color"/></td>
+                <td><input type="text" ng-model="search.price"/></td>
+                <td><input type="text" ng-model="search.price"/></td>               
+            </tr>
+        </table>
+
+    </div>
+
+    
+    <br>
+</body>
+</html>

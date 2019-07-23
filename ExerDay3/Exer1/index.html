@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="calcApp">
+<head>
+    <title>Clock!</title>
+    <script src="angular.js"></script>
+    <script src="bootstrap.js"></script>
+    <script src="calcCtrl.js"></script>
+    <script src="subCalcCtrl.js"></script>
+    <script src="calc2Ctrl.js"></script>
+    <script src="watchCtrl.js"></script>
+    
+
+</head>
+<body >
+  
+    <h4>exer 1</h4>
+    <div ng-controller="calcCtrl">
+            <input type="number" ng-model="firstV">{{op}}
+            <input type="number" ng-model="secondV"> = {{result}}                            
+        <br>
+        <br>
+        <button ng-click="changeOp('+')">+</button>
+        <button ng-click="changeOp('-')">-</button>
+        <button ng-click="changeOp('*')">*</button>
+        <button ng-click="changeOp('/')">/</button>        
+    </div>
+    <br>
+    <br>
+     <div ng-controller="calc2Ctrl">
+            <button ng-click="showRes()">showResultByrootScope</button>&nbsp;&nbsp;&nbsp;{{res}}
+            <!--p>={{result}}</p-->
+        </div>
+        <br>
+        <br>
+        <h4>exer 2</h4>
+        <div ng-controller="watchCtrl">
+                <input type="text" ng-model="myName" placeholder="try to guess my name">&nbsp;&nbsp;{{mess}}
+        </div>
+</body>
+</html> 
