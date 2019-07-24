@@ -28,24 +28,24 @@
                 </th>
                 <th ng-click="sort('color')"><a href="">COLOR</a></th>
                 <th ng-click="sort('price')"><a href="">PRICE</a></th>
-                <th></th>
+                <th></th><th></th>
             </tr>
             <tr ng-repeat="m in devices | orderBy:currentSort.exp: currentSort.reverse | filter:search">
                 <td> {{$index}} </td>
-                <td>{{m.model}}</td>
-                <!--td><span ng-if="editind">{{m.model}}</span><input type="text" ng-model="m.model" ng-if="editind"/></td>-->
+                <!--td>{{m.model}}</td>-->
+                <td><span ng-if="m.readind">{{m.model}}</span><input type="text" ng-model="m.model" ng-if="m.editind"/></td>
                 <td>{{m.color}}</td>
-                <td>{{m.price}}</td>
-                <td><button ng-click="edit($index)" ><img src="pencil.png" size="5px"><img</button>                  
-                </td>
-                <td><button ng-click="edit($index)" ><img src="mypencil.png"><img</button><button ng-click="del($index)" ><font size="4px"><b>X</b></font></button></td>
+                <td>{{m.price}}</td> 
+                <td><button ng-click="edit($index)" ><img src="mypencil.png"><img</button></td>               
+                <td><button ng-click="del($index)" ><font size="4px">X</font></button></td>
             </tr>
             <tr>
                 <td></td>
                 <td> <input type="text" ng-model="search.model"/> </td>
                 <td><input type="text" ng-model="search.color"/></td>
                 <td><input type="text" ng-model="search.price"/></td>
-                <td><input type="text" ng-model="search.price"/></td>               
+                 
+                             
             </tr>
         </table>
 
