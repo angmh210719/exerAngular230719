@@ -30,12 +30,8 @@ function MobileCtrl($scope, $rootScope) {
         $scope.devices.splice(i,1);
     }
     $scope.edit = function(i) {  
-        $scope.editind=false;
-       // var duplicateRow = {};
-    //duplicateRow = angular.copy($scope.devices[i]);
-    //for(v in duplicateRow){duplicateRow[v]="";}
-   // $scope.devices.push(duplicateRow);
-   //$scope.devices.push()
+        $scope.devices[i].editind=true;
+        $scope.devices[i].readind=false;       
     }
 
     $scope.sort = function(column){
